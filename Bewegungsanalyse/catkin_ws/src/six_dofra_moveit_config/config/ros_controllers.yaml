@@ -24,7 +24,7 @@ joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
 
-  
+
 controller_list:
   - name: arm_controller
     action_ns: follow_joint_trajectory
@@ -97,6 +97,7 @@ arm_controller:
       d: 1
       i: 1
       i_clamp: 1
+    
 
 gazebo_ros_control:
   pid_gains:

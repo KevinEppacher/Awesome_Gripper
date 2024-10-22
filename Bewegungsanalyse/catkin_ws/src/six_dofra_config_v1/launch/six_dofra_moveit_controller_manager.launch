@@ -1,9 +1,0 @@
-<launch>
-    <!-- Define the MoveIt controller manager plugin to use for trajectory execution -->
-     <arg name = "moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
-    <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
-  
-    <!-- Load controller list to the parameter server -->
-    <rosparam file="$(find six_dofra_config_v1)/config/ros_controllers.yaml" />
-  </launch>
-  

@@ -54,16 +54,18 @@ CMAKE_BINARY_DIR = /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Aw
 
 # The main recursive "all" target.
 all: gtest/all
-all: six_dofra_config_v1/all
 all: six_dofra_moveit_config/all
+all: six_dofra_moveit_config_v1/all
+all: six_dofra_moveit_config_v2/all
 all: urdf_6_dofra_v3/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
-preinstall: six_dofra_config_v1/preinstall
 preinstall: six_dofra_moveit_config/preinstall
+preinstall: six_dofra_moveit_config_v1/preinstall
+preinstall: six_dofra_moveit_config_v2/preinstall
 preinstall: urdf_6_dofra_v3/preinstall
 
 .PHONY : preinstall
@@ -75,8 +77,9 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
-clean: six_dofra_config_v1/clean
 clean: six_dofra_moveit_config/clean
+clean: six_dofra_moveit_config_v1/clean
+clean: six_dofra_moveit_config_v2/clean
 clean: urdf_6_dofra_v3/clean
 
 .PHONY : clean
@@ -139,24 +142,6 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/clean
 
 #=============================================================================
-# Directory level rules for directory six_dofra_config_v1
-
-# Recursive "all" directory target.
-six_dofra_config_v1/all:
-
-.PHONY : six_dofra_config_v1/all
-
-# Recursive "preinstall" directory target.
-six_dofra_config_v1/preinstall:
-
-.PHONY : six_dofra_config_v1/preinstall
-
-# Recursive "clean" directory target.
-six_dofra_config_v1/clean: six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/clean
-
-.PHONY : six_dofra_config_v1/clean
-
-#=============================================================================
 # Directory level rules for directory six_dofra_moveit_config
 
 # Recursive "all" directory target.
@@ -170,9 +155,45 @@ six_dofra_moveit_config/preinstall:
 .PHONY : six_dofra_moveit_config/preinstall
 
 # Recursive "clean" directory target.
-six_dofra_moveit_config/clean:
+six_dofra_moveit_config/clean: six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 .PHONY : six_dofra_moveit_config/clean
+
+#=============================================================================
+# Directory level rules for directory six_dofra_moveit_config_v1
+
+# Recursive "all" directory target.
+six_dofra_moveit_config_v1/all:
+
+.PHONY : six_dofra_moveit_config_v1/all
+
+# Recursive "preinstall" directory target.
+six_dofra_moveit_config_v1/preinstall:
+
+.PHONY : six_dofra_moveit_config_v1/preinstall
+
+# Recursive "clean" directory target.
+six_dofra_moveit_config_v1/clean:
+
+.PHONY : six_dofra_moveit_config_v1/clean
+
+#=============================================================================
+# Directory level rules for directory six_dofra_moveit_config_v2
+
+# Recursive "all" directory target.
+six_dofra_moveit_config_v2/all:
+
+.PHONY : six_dofra_moveit_config_v2/all
+
+# Recursive "preinstall" directory target.
+six_dofra_moveit_config_v2/preinstall:
+
+.PHONY : six_dofra_moveit_config_v2/preinstall
+
+# Recursive "clean" directory target.
+six_dofra_moveit_config_v2/clean:
+
+.PHONY : six_dofra_moveit_config_v2/clean
 
 #=============================================================================
 # Directory level rules for directory urdf_6_dofra_v3
@@ -437,31 +458,31 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir
+# Target rules for target six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir
 
 # All Build rule for target.
-six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/build.make six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/build.make six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/build
+six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/build.make six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/build.make six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/all
+.PHONY : six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/all
 
 # Build rule for subdir invocation for target.
-six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
-.PHONY : six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/rule
+_catkin_empty_exported_target: six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 .PHONY : _catkin_empty_exported_target
 
 # clean rule for target.
-six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/build.make six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/clean
+six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/build.make six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : six_dofra_moveit_config/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

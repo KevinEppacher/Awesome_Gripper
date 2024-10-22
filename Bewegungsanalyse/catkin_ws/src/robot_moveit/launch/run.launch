@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find robot)/launch/gazeboandcontroller.launch" />
+    <include file="$(find robot_moveit)/launch/move_group.launch" />
+    <include file="$(find robot_moveit)/launch/moveit_rviz.launch" >
+        <arg name="rviz_config" value="$(find robot_moveit)/config/robot.rviz"/>
+    </include>
+</launch>
