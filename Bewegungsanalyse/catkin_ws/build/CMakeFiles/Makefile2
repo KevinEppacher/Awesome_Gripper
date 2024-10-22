@@ -55,6 +55,7 @@ CMAKE_BINARY_DIR = /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Aw
 # The main recursive "all" target.
 all: gtest/all
 all: six_dofra_config_v1/all
+all: six_dofra_moveit_config/all
 all: urdf_6_dofra_v3/all
 
 .PHONY : all
@@ -62,6 +63,7 @@ all: urdf_6_dofra_v3/all
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: six_dofra_config_v1/preinstall
+preinstall: six_dofra_moveit_config/preinstall
 preinstall: urdf_6_dofra_v3/preinstall
 
 .PHONY : preinstall
@@ -74,6 +76,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: six_dofra_config_v1/clean
+clean: six_dofra_moveit_config/clean
 clean: urdf_6_dofra_v3/clean
 
 .PHONY : clean
@@ -152,6 +155,24 @@ six_dofra_config_v1/preinstall:
 six_dofra_config_v1/clean: six_dofra_config_v1/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 .PHONY : six_dofra_config_v1/clean
+
+#=============================================================================
+# Directory level rules for directory six_dofra_moveit_config
+
+# Recursive "all" directory target.
+six_dofra_moveit_config/all:
+
+.PHONY : six_dofra_moveit_config/all
+
+# Recursive "preinstall" directory target.
+six_dofra_moveit_config/preinstall:
+
+.PHONY : six_dofra_moveit_config/preinstall
+
+# Recursive "clean" directory target.
+six_dofra_moveit_config/clean:
+
+.PHONY : six_dofra_moveit_config/clean
 
 #=============================================================================
 # Directory level rules for directory urdf_6_dofra_v3
