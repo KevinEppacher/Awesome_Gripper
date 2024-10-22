@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Controller configuration -->
+    <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" 
+    doc="The hardware_interface to expose for each joint in the simulated robot (options: PositionJointInterface, VelocityJointInterface, EffortJointInterface)"/>
+    
+    <!-- Gazebo and World settings -->
+    <arg name="gazebo_model_name" default="six_dofra_v3_robot" doc="Name to give to the model in Gazebo"/>
+    <arg name="gazebo_world" default="worlds/empty.world" doc="The '.world' file to load in Gazebo." />
+    <arg name="gui" default="true" doc="If true, Gazebo UI is started. If false, only start Gazebo server." />
+    <arg name="paused" default="true" doc="If true, start Gazebo in paused mode." />
+    <arg name="start_gazebo" default="true" doc="If true, Gazebo will be started." />
+    <arg name="robot_description_param_name" default="robot_description" doc="Name of the parameter containing the robot description"/>
+    <arg name="initial_joint_positions" default="-J joint_1 0 -J joint_2 0 -J joint_3 0 -J joint_4 0 -J joint_5 0 -J joint_6 0 -J linear_axis 0" doc="Initial joint configuration of the robot"/>
+
+    <!-- Set the robot URDF from the parameter server -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find urdf_6_dofra_v3)/urdf/URDF_Assembly_6_DOFRA_v3.urdf transmission_hw_interface:=$(arg transmission_hw_interface)" />
+
+    <!-- Load Gazebo parameters and start Gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" if="$(arg start_gazebo)">
+      <arg name="world_name" value="$(arg gazebo_world)"/>
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="gui" value="$(arg gui)"/>
+    </include>
+
+    <!-- Spawn the robot model in Gazebo -->
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+      args="-urdf -param $(arg robot_description_param_name) -model $(arg gazebo_model_name) $(arg initial_joint_positions)" 
+      output="screen" respawn="false" />
+
+    <!-- Robot State Publisher to broadcast TF and Joint States -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" 
+      output="screen">
+      <remap from="/joint_states" to="/six_dofra/joint_states"/>
+    </node>
+
+    <!-- Load controller parameters from YAML -->
+    <rosparam file="$(find six_dofra_config_v1)/config/gazebo_controllers.yaml" command="load" />
+
+    <!-- Spawner for controllers (joint and trajectory controllers) -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+      args="joint_state_controller manipulator_controller" 
+      ns="/six_dofra" output="screen" respawn="false" />
+
+    <!-- MoveIt! integration -->
+    <include file="$(find six_dofra_config_v1)/launch/move_group.launch">
+        <arg name="publish_monitored_planning_scene" value="true"/>
+    </include>
+
+    <!-- RViz for visualization -->
+    <include file="$(find six_dofra_config_v1)/launch/moveit_rviz.launch">
+        <arg name="rviz_config" value="$(find six_dofra_config_v1)/launch/moveit.rviz"/>
+    </include>
+
+    
+
+</launch>

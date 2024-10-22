@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: urdf_6_dofra_v3
+    relative_path: urdf/URDF_Assembly_6_DOFRA_v3.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/urdf_6_dofra_v3.srdf
+  CONFIG:
+    author_name: kevin-eppacher@hotmail.de
+    author_email: kevin-eppacher@hotmail.de
+    generated_timestamp: 1729553059

@@ -3,6 +3,12 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="urdf_6_dofra_v3">
+    <link name="world"/>
+    <joint name="world_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>  <!-- Place the robot wherever you want -->
+        <parent link="world"/>
+        <child link="base_link"/>  <!-- replace this name with your robot's base link -->
+    </joint>
     <link name="base_link">
         <inertial>
             <origin xyz="0.49973 0.79194 -0.013418" rpy="0 0 0" />
@@ -110,6 +116,7 @@
         <child link="link1" />
         <axis xyz="0 0 1" />
         <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+        
     </joint>
     <link name="link_2">
         <inertial>
@@ -139,6 +146,7 @@
         <child link="link_2" />
         <axis xyz="0 0 1" />
         <limit lower="-1.7453" upper="2.5307" effort="0" velocity="0" />
+        
     </joint>
     <link name="link_3">
         <inertial>
@@ -168,6 +176,7 @@
         <child link="link_3" />
         <axis xyz="0 0 1" />
         <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+        
     </joint>
     <link name="link_4">
         <inertial>
@@ -197,6 +206,7 @@
         <child link="link_4" />
         <axis xyz="0 0 -1" />
         <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+        
     </joint>
     <link name="link_5">
         <inertial>
@@ -226,6 +236,7 @@
         <child link="link_5" />
         <axis xyz="1 0 0" />
         <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+        
     </joint>
     <link name="link_6">
         <inertial>
@@ -255,6 +266,7 @@
         <child link="link_6" />
         <axis xyz="0 0 1" />
         <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+        
     </joint>
     <transmission name="trans_linear_axis">
         <type>transmission_interface/SimpleTransmission</type>
@@ -332,4 +344,3 @@
         </plugin>
     </gazebo>
 </robot>
-

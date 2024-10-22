@@ -12,11 +12,6 @@
   <!-- Launch Gazebo and spawn the robot -->
   <include file="$(dirname)/gazebo.launch" pass_all_args="true"/>
 
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-    <param name="gazebo_gui" value="$(arg gazebo_gui)"/>
-    <rosparam param="source_list">[six_dofra/joint_states]</rosparam>
-    
-
   <!-- Launch MoveIt -->
   <include file="$(dirname)/demo.launch" pass_all_args="true">
     <!-- robot_description is loaded by gazebo.launch, to enable Gazebo features -->
