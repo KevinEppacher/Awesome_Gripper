@@ -10,7 +10,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find urdf_6_dofra_v3)/urdf/urdf_6_dofra_v3.urdf -urdf -model urdf_6_dofra_v3"
+    args="-file $(find urdf_6_dofra_v3)/urdf/URDF_Assembly_6_DOFRA_v3.urdf -urdf -model URDF_Assembly_6_DOFRA_v3"
     output="screen" />
   <node
     name="fake_joint_calibration"

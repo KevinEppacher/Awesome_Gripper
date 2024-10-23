@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find urdf_6_dofra_v3)/urdf/urdf_6_dofra_v3.urdf" />
+    textfile="$(find urdf_6_dofra_v3)/urdf/URDF_Assembly_6_DOFRA_v3.urdf" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
