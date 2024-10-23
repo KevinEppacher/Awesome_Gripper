@@ -5,7 +5,13 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("arm_config")
+subdirs("robot_moveit")
 subdirs("six_dofra_moveit_config")
 subdirs("six_dofra_moveit_config_v1")
 subdirs("six_dofra_moveit_config_v2")
+subdirs("six_dofra_moveit_config_v3")
+subdirs("arm_description")
+subdirs("robot")
+subdirs("six_dofra_description")
 subdirs("urdf_6_dofra_v3")

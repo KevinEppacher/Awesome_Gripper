@@ -1,2 +1,2 @@
-six_dofra_moveit_config:six_dofra_moveit_config_v1:six_dofra_moveit_config_v2:urdf_6_dofra_v3
+arm_config:arm_description:robot:robot_moveit:six_dofra_description:six_dofra_moveit_config:six_dofra_moveit_config_v1:six_dofra_moveit_config_v2:six_dofra_moveit_config_v3:urdf_6_dofra_v3
 -DCATKIN_DEVEL_PREFIX=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/install -G Unix Makefiles

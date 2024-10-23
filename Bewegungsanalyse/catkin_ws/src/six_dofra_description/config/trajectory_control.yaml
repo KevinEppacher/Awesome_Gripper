@@ -1,0 +1,24 @@
+six_dofra:
+  manipulator_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - linear_axis
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      linear_axis: {trajectory: 0.01, goal: 0.01}
+      joint_1: {trajectory: 0.01, goal: 0.01}
+      joint_2: {trajectory: 0.01, goal: 0.01}
+      joint_3: {trajectory: 0.01, goal: 0.01}
+      joint_4: {trajectory: 0.01, goal: 0.01}
+      joint_5: {trajectory: 0.01, goal: 0.01}
+      joint_6: {trajectory: 0.01, goal: 0.01}
+    stop_trajectory_duration: 0.5
+    state_publish_rate:  25
+    action_monitor_rate: 10
