@@ -1,0 +1,2 @@
+set(gazebo_conveyor_MESSAGE_FILES "/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/src/conveyor_demo/src/gazebo-conveyor/msg/ConveyorBeltState.msg")
+set(gazebo_conveyor_SERVICE_FILES "/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/src/conveyor_demo/src/gazebo-conveyor/srv/ConveyorBeltControl.srv")

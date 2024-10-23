@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Argument for Conveyor Pose -->
+    <arg name="conveyor_pose" default="-x 2.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose for the conveyor belt"/>
+
+    <!-- Spawn Conveyor Belt Model in Gazebo -->
+    <group ns="conveyor">
+        <node name="spawn_model_belt" pkg="gazebo_ros" type="spawn_model" 
+            args="-file $(find demo_world)/urdf/conveyor.urdf -urdf -model conveyor_belt $(arg conveyor_pose)" 
+            respawn="false" output="screen" />
+    </group>
+    
+</launch>
