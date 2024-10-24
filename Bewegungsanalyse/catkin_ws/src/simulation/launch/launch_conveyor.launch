@@ -1,13 +1,23 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- Argument for Conveyor Pose -->
-    <arg name="conveyor_pose" default="-x 2.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose for the conveyor belt"/>
+    <!-- Argument for Conveyor 1 Pose -->
+    <arg name="conveyor_1_pose" default="-x 2.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose for the first conveyor belt"/>
+    
+    <!-- Argument for Conveyor 2 Pose -->
+    <arg name="conveyor_2_pose" default="-x 4.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose for the second conveyor belt"/>
 
-    <!-- Spawn Conveyor Belt Model in Gazebo -->
-    <group ns="conveyor">
-        <node name="spawn_model_belt" pkg="gazebo_ros" type="spawn_model" 
-            args="-file $(find demo_world)/urdf/conveyor.urdf -urdf -model conveyor_belt $(arg conveyor_pose)" 
+    <!-- Spawn the first Conveyor Belt Model in Gazebo -->
+    <group ns="conveyor_1">
+        <node name="spawn_model_belt_1" pkg="gazebo_ros" type="spawn_model" 
+            args="-file $(find demo_world)/urdf/conveyor.urdf -urdf -model conveyor_belt_1 $(arg conveyor_1_pose)" 
+            respawn="false" output="screen" />
+    </group>
+    
+    <!-- Spawn the second Conveyor Belt Model in Gazebo -->
+    <group ns="conveyor_2">
+        <node name="spawn_model_belt_2" pkg="gazebo_ros" type="spawn_model" 
+            args="-file $(find demo_world)/urdf/conveyor.urdf -urdf -model conveyor_belt_2 $(arg conveyor_2_pose)" 
             respawn="false" output="screen" />
     </group>
     

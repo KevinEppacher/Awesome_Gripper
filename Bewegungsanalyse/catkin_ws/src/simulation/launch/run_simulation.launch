@@ -7,7 +7,9 @@
 
     <!-- Arguments for Robot and Conveyor Pose -->
     <arg name="robot_pose" default="-x 0 -y 0 -z 0.8 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
-    <arg name="conveyor_pose" default="-x 2.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose to spawn the conveyor at"/>
+    <arg name="conveyor_1_pose" default="-x 2.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose to spawn the conveyor at"/>
+    <arg name="conveyor_2_pose" default="-x -2.0 -y 0.0 -z 0.0 -R 0 -P 0 -Y 0" doc="Pose to spawn the conveyor at"/>
+
 
     <!-- Start Gazebo paused to allow the controllers to pick up the initial pose -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
@@ -24,7 +26,8 @@
 
     <!-- Include the conveyor launch with pose argument -->
     <include file="$(find simulation)/launch/launch_conveyor.launch">
-        <arg name="conveyor_pose" value="$(arg conveyor_pose)"/>
+        <arg name="conveyor_1_pose" value="$(arg conveyor_1_pose)"/>
+        <arg name="conveyor_2_pose" value="$(arg conveyor_2_pose)"/>
     </include>
 
 </launch>

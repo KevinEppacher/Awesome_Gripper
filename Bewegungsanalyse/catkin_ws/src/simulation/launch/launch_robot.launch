@@ -6,7 +6,8 @@
     <arg name="robot_pose" default="-x 0 -y 0 -z 0.8 -R 0 -P 0 -Y 0" doc="Pose for robot"/>
 
     <!-- Set the robot URDF on the parameter server -->
-    <param name="robot_description" textfile="$(find urdf_6_dofra_v3)/urdf/URDF_Assembly_6_DOFRA_v3.urdf" />
+    <!-- <param name="robot_description" textfile="$(find urdf_6_dofra_v3)/urdf/URDF_Assembly_6_DOFRA_v3.urdf" /> -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find urdf_6_dofra_v3)/urdf/URDF_Assembly_6_DOFRA_v3.xacro"/>
 
     <!-- Unpause the simulation after loading the robot model -->
     <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
