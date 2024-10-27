@@ -54,12 +54,14 @@ CMAKE_BINARY_DIR = /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Aw
 
 # The main recursive "all" target.
 all: gtest/all
+all: cobot_moveit_config_gazebo/all
 all: gripper_config_v2/all
 all: robot_moveit/all
 all: six_dofra_moveit_config_v3/all
 all: conveyor_demo/src/demo_world/all
 all: simulation/all
 all: conveyor_demo/src/gazebo-conveyor/all
+all: cobot/all
 all: gripper/all
 all: robot/all
 all: urdf_6_dofra_v3/all
@@ -68,12 +70,14 @@ all: urdf_6_dofra_v3/all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: cobot_moveit_config_gazebo/preinstall
 preinstall: gripper_config_v2/preinstall
 preinstall: robot_moveit/preinstall
 preinstall: six_dofra_moveit_config_v3/preinstall
 preinstall: conveyor_demo/src/demo_world/preinstall
 preinstall: simulation/preinstall
 preinstall: conveyor_demo/src/gazebo-conveyor/preinstall
+preinstall: cobot/preinstall
 preinstall: gripper/preinstall
 preinstall: robot/preinstall
 preinstall: urdf_6_dofra_v3/preinstall
@@ -87,17 +91,59 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: cobot_moveit_config_gazebo/clean
 clean: gripper_config_v2/clean
 clean: robot_moveit/clean
 clean: six_dofra_moveit_config_v3/clean
 clean: conveyor_demo/src/demo_world/clean
 clean: simulation/clean
 clean: conveyor_demo/src/gazebo-conveyor/clean
+clean: cobot/clean
 clean: gripper/clean
 clean: robot/clean
 clean: urdf_6_dofra_v3/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory cobot
+
+# Recursive "all" directory target.
+cobot/all:
+
+.PHONY : cobot/all
+
+# Recursive "preinstall" directory target.
+cobot/preinstall:
+
+.PHONY : cobot/preinstall
+
+# Recursive "clean" directory target.
+cobot/clean: cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean
+cobot/clean: cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/clean
+cobot/clean: cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/clean
+cobot/clean: cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/clean
+cobot/clean: cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
+
+.PHONY : cobot/clean
+
+#=============================================================================
+# Directory level rules for directory cobot_moveit_config_gazebo
+
+# Recursive "all" directory target.
+cobot_moveit_config_gazebo/all:
+
+.PHONY : cobot_moveit_config_gazebo/all
+
+# Recursive "preinstall" directory target.
+cobot_moveit_config_gazebo/preinstall:
+
+.PHONY : cobot_moveit_config_gazebo/preinstall
+
+# Recursive "clean" directory target.
+cobot_moveit_config_gazebo/clean: cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+.PHONY : cobot_moveit_config_gazebo/clean
 
 #=============================================================================
 # Directory level rules for directory conveyor_demo/src/demo_world
@@ -250,7 +296,7 @@ gripper_config_v2/preinstall:
 .PHONY : gripper_config_v2/preinstall
 
 # Recursive "clean" directory target.
-gripper_config_v2/clean: gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean
+gripper_config_v2/clean:
 
 .PHONY : gripper_config_v2/clean
 
@@ -665,31 +711,31 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir
+# Target rules for target cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir
 
 # All Build rule for target.
-gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build
+cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/build.make cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/build.make cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/all
+.PHONY : cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/all
 
 # Build rule for subdir invocation for target.
-gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
-.PHONY : gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/rule
+_catkin_empty_exported_target: cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 .PHONY : _catkin_empty_exported_target
 
 # clean rule for target.
-gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean
+cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/build.make cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : cobot_moveit_config_gazebo/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Target rules for target conveyor_demo/src/demo_world/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
@@ -3495,6 +3541,141 @@ gazebo_conveyor_generate_messages: conveyor_demo/src/gazebo-conveyor/CMakeFiles/
 conveyor_demo/src/gazebo-conveyor/CMakeFiles/gazebo_conveyor_generate_messages.dir/clean:
 	$(MAKE) -f conveyor_demo/src/gazebo-conveyor/CMakeFiles/gazebo_conveyor_generate_messages.dir/build.make conveyor_demo/src/gazebo-conveyor/CMakeFiles/gazebo_conveyor_generate_messages.dir/clean
 .PHONY : conveyor_demo/src/gazebo-conveyor/CMakeFiles/gazebo_conveyor_generate_messages.dir/clean
+
+#=============================================================================
+# Target rules for target cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_py"
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_py: cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_py
+
+# clean rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_nodejs"
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_nodejs: cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_nodejs
+
+# clean rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/clean
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_lisp"
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_lisp: cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_lisp
+
+# clean rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/clean
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_eus"
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_eus: cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_eus
+
+# clean rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/clean
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_cpp"
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_cpp: cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_cpp
+
+# clean rule for target.
+cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
+.PHONY : cobot/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

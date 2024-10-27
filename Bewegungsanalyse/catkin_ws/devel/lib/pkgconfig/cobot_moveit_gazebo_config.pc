@@ -1,0 +1,8 @@
+prefix=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/devel
+
+Name: cobot_moveit_gazebo_config
+Description: Description of cobot_moveit_gazebo_config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
