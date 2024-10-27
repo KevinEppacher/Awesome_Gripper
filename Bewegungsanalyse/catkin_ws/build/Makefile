@@ -294,7 +294,7 @@ _catkin_empty_exported_target: cmake_check_build_system
 
 # fast build rule for target.
 _catkin_empty_exported_target/fast:
-	$(MAKE) -f robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/build.make robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/build
+	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================

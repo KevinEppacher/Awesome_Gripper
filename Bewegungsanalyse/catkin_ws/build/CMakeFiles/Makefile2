@@ -54,11 +54,13 @@ CMAKE_BINARY_DIR = /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Aw
 
 # The main recursive "all" target.
 all: gtest/all
+all: gripper_config_v2/all
 all: robot_moveit/all
 all: six_dofra_moveit_config_v3/all
 all: conveyor_demo/src/demo_world/all
 all: simulation/all
 all: conveyor_demo/src/gazebo-conveyor/all
+all: gripper/all
 all: robot/all
 all: urdf_6_dofra_v3/all
 
@@ -66,11 +68,13 @@ all: urdf_6_dofra_v3/all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: gripper_config_v2/preinstall
 preinstall: robot_moveit/preinstall
 preinstall: six_dofra_moveit_config_v3/preinstall
 preinstall: conveyor_demo/src/demo_world/preinstall
 preinstall: simulation/preinstall
 preinstall: conveyor_demo/src/gazebo-conveyor/preinstall
+preinstall: gripper/preinstall
 preinstall: robot/preinstall
 preinstall: urdf_6_dofra_v3/preinstall
 
@@ -83,11 +87,13 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: gripper_config_v2/clean
 clean: robot_moveit/clean
 clean: six_dofra_moveit_config_v3/clean
 clean: conveyor_demo/src/demo_world/clean
 clean: simulation/clean
 clean: conveyor_demo/src/gazebo-conveyor/clean
+clean: gripper/clean
 clean: robot/clean
 clean: urdf_6_dofra_v3/clean
 
@@ -213,6 +219,42 @@ conveyor_demo/src/gazebo-conveyor/clean: conveyor_demo/src/gazebo-conveyor/CMake
 .PHONY : conveyor_demo/src/gazebo-conveyor/clean
 
 #=============================================================================
+# Directory level rules for directory gripper
+
+# Recursive "all" directory target.
+gripper/all:
+
+.PHONY : gripper/all
+
+# Recursive "preinstall" directory target.
+gripper/preinstall:
+
+.PHONY : gripper/preinstall
+
+# Recursive "clean" directory target.
+gripper/clean:
+
+.PHONY : gripper/clean
+
+#=============================================================================
+# Directory level rules for directory gripper_config_v2
+
+# Recursive "all" directory target.
+gripper_config_v2/all:
+
+.PHONY : gripper_config_v2/all
+
+# Recursive "preinstall" directory target.
+gripper_config_v2/preinstall:
+
+.PHONY : gripper_config_v2/preinstall
+
+# Recursive "clean" directory target.
+gripper_config_v2/clean: gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+.PHONY : gripper_config_v2/clean
+
+#=============================================================================
 # Directory level rules for directory gtest
 
 # Recursive "all" directory target.
@@ -301,7 +343,7 @@ robot_moveit/preinstall:
 .PHONY : robot_moveit/preinstall
 
 # Recursive "clean" directory target.
-robot_moveit/clean: robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/clean
+robot_moveit/clean:
 
 .PHONY : robot_moveit/clean
 
@@ -623,31 +665,31 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir
+# Target rules for target gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir
 
 # All Build rule for target.
-robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/build.make robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/build.make robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/build
+gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/all
+.PHONY : gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/all
 
 # Build rule for subdir invocation for target.
-robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build/CMakeFiles 0
-.PHONY : robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/rule
+_catkin_empty_exported_target: gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 .PHONY : _catkin_empty_exported_target
 
 # clean rule for target.
-robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/build.make robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : robot_moveit/CMakeFiles/_catkin_empty_exported_target.dir/clean
+gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/build.make gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : gripper_config_v2/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Target rules for target conveyor_demo/src/demo_world/CMakeFiles/rosgraph_msgs_generate_messages_py.dir

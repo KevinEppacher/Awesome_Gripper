@@ -1,0 +1,61 @@
+gripper_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - joint_1_left
+    - joint_2_left
+    - joint_1_right
+    - joint_2_right
+    - joint_support_left
+    - joint_support_right
+  gains:
+    joint_1_left:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_2_left:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_1_right:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_2_right:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_support_left:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_support_right:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    constraints:
+      goal_time: 0.1
+      stopped_velocity_tolerance: 0.1
+      joint_1_left:
+        goal: 0.1
+        trajectory: 0.05
+      joint_1_right:
+        goal: 0.1
+        trajectory: 0.05
+      joint_2_left:
+        goal: 0.1
+        trajectory: 0.05
+      joint_2_right:
+        goal: 0.1
+        trajectory: 0.05
+      joint_support_left:
+        goal: 0.1
+        trajectory: 0.05
+      joint_support_right:
+        goal: 0.1
+        trajectory: 0.05

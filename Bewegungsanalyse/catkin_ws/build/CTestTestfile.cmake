@@ -5,10 +5,12 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("gripper_config_v2")
 subdirs("robot_moveit")
 subdirs("six_dofra_moveit_config_v3")
 subdirs("conveyor_demo/src/demo_world")
 subdirs("simulation")
 subdirs("conveyor_demo/src/gazebo-conveyor")
+subdirs("gripper")
 subdirs("robot")
 subdirs("urdf_6_dofra_v3")

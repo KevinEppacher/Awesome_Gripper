@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: gripper
+    relative_path: urdf/gripper_all_joints.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/gripper.srdf
+  CONFIG:
+    author_name: kevin-eppacher@hotmail.de
+    author_email: kevin-eppacher@hotmail.de
+    generated_timestamp: 1730049239

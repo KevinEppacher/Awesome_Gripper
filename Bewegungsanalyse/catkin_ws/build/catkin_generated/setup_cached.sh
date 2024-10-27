@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD='/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/build'
-export PYTHONPATH="/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/devel/lib/python3/dist-packages:$PYTHONPATH"

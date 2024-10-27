@@ -1,0 +1,16 @@
+gripper_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - joint_1_right
+
+  gains:
+    joint_1_right:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+
+  constraints:
+    joint_1_right:
+      goal: 0.1
+      trajectory: 0.05
