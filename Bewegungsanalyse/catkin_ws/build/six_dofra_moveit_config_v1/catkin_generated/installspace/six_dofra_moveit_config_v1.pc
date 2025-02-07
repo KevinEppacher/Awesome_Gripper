@@ -1,8 +1,0 @@
-prefix=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/install
-
-Name: six_dofra_moveit_config_v1
-Description: Description of six_dofra_moveit_config_v1
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

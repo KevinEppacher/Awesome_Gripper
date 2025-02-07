@@ -1,8 +1,0 @@
-prefix=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/install
-
-Name: robotiq_msgs
-Description: Description of robotiq_msgs
-Version: 0.1.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: actionlib actionlib_msgs control_msgs message_runtime

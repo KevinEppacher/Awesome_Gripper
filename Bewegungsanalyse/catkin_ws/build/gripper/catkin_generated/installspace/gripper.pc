@@ -1,8 +1,0 @@
-prefix=/home/kevin/Documents/Master/3_Semester/Produktentwicklung/Awesome_Gripper/Bewegungsanalyse/catkin_ws/install
-
-Name: gripper
-Description: Description of gripper
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
