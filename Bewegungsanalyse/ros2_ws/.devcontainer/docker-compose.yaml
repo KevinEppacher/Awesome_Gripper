@@ -14,14 +14,14 @@ services:
     volumes:
       - ../../ros2_ws:/app               # Mount des Workspace-Verzeichnisses
       - /tmp/.X11-unix:/tmp/.X11-unix:rw  # X11-Socket für GUI
-    devices:
-      - /dev/dri:/dev/dri  # Zugriff auf GPU
+    # devices:
+    #   - /dev/dri:/dev/dri  # Zugriff auf GPU
     stdin_open: true
     tty: true
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
