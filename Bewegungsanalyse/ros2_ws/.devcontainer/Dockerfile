@@ -36,3 +36,21 @@ RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 ################################
 ## ADD ANY CUSTOM SETUP BELOW ##
 ################################
+
+RUN sudo apt update && sudo apt upgrade -y && \
+    sudo apt install -y ros-humble-gazebo-ros-pkgs
+
+RUN sudo apt update && sudo apt install -y \
+    gdbserver && sudo apt install -y gdb
+
+# Installation von MoveIt 2
+RUN sudo apt update && sudo apt install -y \
+    ros-humble-moveit \
+    ros-humble-ros2-control \
+    ros-humble-ros2-controllers \
+    ros-humble-controller-manager \
+    ros-humble-diff-drive-controller \
+    ros-humble-joint-trajectory-controller
+
+# Update all packages
+RUN sudo apt update && sudo apt upgrade -y

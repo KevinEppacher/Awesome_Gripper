@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  gruppe_1:  # Name des Services, der im Docker-Container laufen wird
+    image: ros2/awesome_gripper  # Name des Docker-Images
+    build:
+      context: ./  # Pfad zum Verzeichnis, in dem die Docker-Datei liegt
+      dockerfile: Dockerfile
+    network_mode: host  # Host-Netzwerk für ROS-Kommunikation
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}      # X11-Display
+      - QT_X11_NO_MITSHM=1       # Für Qt-basierte Anwendungen
+    volumes:
+      - ../../ros2_ws:/app               # Mount des Workspace-Verzeichnisses
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # X11-Socket für GUI
+    devices:
+      - /dev/dri:/dev/dri  # Zugriff auf GPU
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
