@@ -1,27 +1,72 @@
-version: '3.9'
-
 services:
-  gruppe_1:  # Name des Services, der im Docker-Container laufen wird
-    image: ros2/awesome_gripper  # Name des Docker-Images
+  cpu:
+    image: ros2/awesome_gripper
     build:
-      context: ./  # Pfad zum Verzeichnis, in dem die Docker-Datei liegt
+      context: ./
       dockerfile: Dockerfile
-    network_mode: host  # Host-Netzwerk für ROS-Kommunikation
+    container_name: ros2_moveit_container
     privileged: true
-    environment:
-      - DISPLAY=${DISPLAY}      # X11-Display
-      - QT_X11_NO_MITSHM=1       # Für Qt-basierte Anwendungen
+    network_mode: host
+    command: /bin/bash
+    tty: true
     volumes:
-      - ../../ros2_ws:/app               # Mount des Workspace-Verzeichnisses
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # X11-Socket für GUI
-    devices:
-      - /dev/dri:/dev/dri  # Zugriff auf GPU
-    stdin_open: true
+      - ../../ros2_ws:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $XAUTHORITY:/root/.Xauthority
+    environment:
+      QT_X11_NO_MITSHM: 1
+      DISPLAY: $DISPLAY
+  gpu:
+    image: ros2/awesome_gripper
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: ros2_moveit_container
+    privileged: true
+    network_mode: host
+    command: /bin/bash
     tty: true
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              count: all
+              count: 1
               capabilities: [gpu]
+    volumes:
+      - ../../ros2_ws:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $XAUTHORITY:/root/.Xauthority
+    environment:
+      QT_X11_NO_MITSHM: 1
+      DISPLAY: $DISPLAY
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: all
+
+# version: '3.9'
+
+# services:
+#   gruppe_1:  # Name des Services, der im Docker-Container laufen wird
+#     image: ros2/awesome_gripper  # Name des Docker-Images
+#     build:
+#       context: ./  # Pfad zum Verzeichnis, in dem die Docker-Datei liegt
+#       dockerfile: Dockerfile
+#     network_mode: host  # Host-Netzwerk für ROS-Kommunikation
+#     privileged: true
+#     environment:
+#       - DISPLAY=${DISPLAY}      # X11-Display
+#       - QT_X11_NO_MITSHM=1       # Für Qt-basierte Anwendungen
+#     volumes:
+#       - ../../ros2_ws:/app               # Mount des Workspace-Verzeichnisses
+#       - /tmp/.X11-unix:/tmp/.X11-unix:rw  # X11-Socket für GUI
+#     devices:
+#       - /dev/dri:/dev/dri  # Zugriff auf GPU
+#     stdin_open: true
+#     tty: true
+#     deploy:
+#       resources:
+#         reservations:
+#           devices:
+#             - driver: nvidia
+#               count: all
+#               capabilities: [gpu]
