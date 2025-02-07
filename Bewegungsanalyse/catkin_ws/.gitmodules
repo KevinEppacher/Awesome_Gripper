@@ -1,3 +1,11 @@
 [submodule "src/conveyor_demo"]
 	path = src/conveyor_demo
 	url = https://github.com/rokokoo/conveyor_demo.git
+
+[submodule "src/Examples/cobot"]
+	path = src/Examples/cobot
+	url = https://github.com/LearnRoboticsWROS/cobot.git
+
+[submodule "src/Examples/cobot_moveit_config_gazebo"]
+	path = src/Examples/cobot_moveit_config_gazebo
+	url = https://github.com/LearnRoboticsWROS/cobot_moveit_config_gazebo.git
