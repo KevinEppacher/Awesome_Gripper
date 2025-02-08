@@ -4,21 +4,22 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="gripper">
+
   <link
     name="mount_link">
     <inertial>
       <origin
-        xyz="-8.7222301559667E-09 2.60285524007094E-09 0.00461166078124227"
+        xyz="-7.69604728464136E-05 0.0135902117365988 0.0250753455696242"
         rpy="0 0 0" />
       <mass
-        value="0.00800577106561985" />
+        value="0.0572428949081024" />
       <inertia
-        ixx="1.22566043551288E-06"
-        ixy="5.24153200353572E-12"
-        ixz="2.32613228187738E-13"
-        iyy="1.59849746758112E-06"
-        iyz="-2.46327240687223E-12"
-        izz="2.6598091705915E-06" />
+        ixx="1.08739624685948E-05"
+        ixy="-5.67703825246591E-08"
+        ixz="-4.79892598221548E-12"
+        iyy="1.32071568573059E-05"
+        iyz="-2.91877769990152E-07"
+        izz="1.6026956946386E-05" />
     </inertial>
     <visual>
       <origin
@@ -54,10 +55,10 @@
         value="0.00469706452647219" />
       <inertia
         ixx="1.18042272673537E-07"
-        ixy="2.49578673776553E-22"
+        ixy="2.48380401664581E-22"
         ixz="-6.12806042251421E-08"
         iyy="2.05310941947316E-06"
-        iyz="-3.17001650257236E-24"
+        iyz="-2.74480147325617E-24"
         izz="2.10931388717727E-06" />
     </inertial>
     <visual>
@@ -89,7 +90,7 @@
     type="revolute">
     <origin
       xyz="-0.01 -0.005 0.02925"
-      rpy="1.5707963267949 0 3.14159265358979" />
+      rpy="1.5708 0 3.1416" />
     <parent
       link="mount_link" />
     <child
@@ -104,6 +105,10 @@
     <dynamics
       damping="1"
       friction="1" />
+    <mimic
+      joint="joint_1_right"
+      multiplier="-1"
+      offset="0" />
   </joint>
   <link
     name="link_2_left">
@@ -147,7 +152,7 @@
   </link>
   <joint
     name="joint_2_left"
-    type="fixed">
+    type="revolute">
     <origin
       xyz="0.05 0 0.005"
       rpy="0 0 0" />
@@ -165,21 +170,25 @@
     <dynamics
       damping="1"
       friction="1" />
+    <mimic
+      joint="joint_1_left"
+      multiplier="1"
+      offset="0" />
   </joint>
   <link
     name="link_3_left">
     <inertial>
       <origin
-        xyz="-0.00764323689249071 6.04234445658937E-19 -0.0158438878575795"
+        xyz="-0.00764323689249072 6.15392821018979E-19 -0.0158438878575795"
         rpy="0 0 0" />
       <mass
         value="0.00676809927823876" />
       <inertia
         ixx="6.50800323977911E-07"
-        ixy="-2.77394163774419E-23"
+        ixy="-2.76588985914095E-23"
         ixz="-1.32178480768053E-07"
         iyy="7.0118965410435E-07"
-        iyz="-3.25777176135168E-23"
+        iyz="-3.28680901965363E-23"
         izz="3.53298937602956E-07" />
     </inertial>
     <visual>
@@ -211,28 +220,32 @@
     type="fixed">
     <origin
       xyz="-0.029 0.061 0"
-      rpy="1.5707963267949 0 3.14159265358979" />
+      rpy="1.5708 0 3.1416" />
     <parent
       link="link_2_left" />
     <child
       link="link_3_left" />
     <axis
       xyz="0 0 0" />
+    <limit
+      lower="-3.14"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="link_support_left">
     <inertial>
       <origin
-        xyz="-0.0230443185065054 -1.93720013088862E-18 -0.00617590354942425"
+        xyz="-0.0230443185065054 -1.92516886232946E-18 -0.00617590354942425"
         rpy="0 0 0" />
       <mass
         value="0.00343879121636352" />
       <inertia
         ixx="3.3013163060583E-07"
-        ixy="-4.94983715673103E-23"
+        ixy="-4.9675081730519E-23"
         ixz="-3.63783392132806E-07"
         iyy="9.95820730062242E-07"
-        iyz="1.94039739044588E-23"
+        iyz="1.93019503238979E-23"
         izz="7.23002286395804E-07" />
     </inertial>
     <visual>
@@ -261,10 +274,10 @@
   </link>
   <joint
     name="joint_support_left"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="-0.004 0 0.04525"
-      rpy="0 0.523598775598301 0" />
+      rpy="0 0.5236 0" />
     <parent
       link="mount_link" />
     <child
@@ -281,23 +294,23 @@
       friction="1" />
     <mimic
       joint="joint_1_left"
-      multiplier="1"
+      multiplier="-1"
       offset="0" />
   </joint>
   <link
     name="link_1_right">
     <inertial>
       <origin
-        xyz="0.0216856425487956 0 0.000708029008234877"
+        xyz="0.0216856425487956 -3.46944695195361E-18 0.000708029008234877"
         rpy="0 0 0" />
       <mass
         value="0.00477903641271765" />
       <inertia
         ixx="1.1732564402647E-07"
-        ixy="2.71135989269119E-24"
+        ixy="-1.80664133980049E-23"
         ixz="6.51369632433988E-08"
         iyy="2.08980923685234E-06"
-        iyz="-1.43172177828471E-23"
+        iyz="-1.49480652486311E-23"
         izz="2.14169254123333E-06" />
     </inertial>
     <visual>
@@ -329,7 +342,7 @@
     type="revolute">
     <origin
       xyz="0.01 0 0.02925"
-      rpy="1.5707963267949 0 0" />
+      rpy="1.5708 0 0" />
     <parent
       link="mount_link" />
     <child
@@ -337,17 +350,13 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-3.14"
-      upper="3.14"
+      lower="0"
+      upper="1"
       effort="1"
       velocity="1" />
     <dynamics
       damping="1"
       friction="1" />
-    <mimic
-      joint="joint_1_left"
-      multiplier="1"
-      offset="0" />
   </joint>
   <link
     name="link_2_right">
@@ -362,7 +371,7 @@
         ixy="4.50233056113258E-07"
         ixz="-1.03279945421962E-09"
         iyy="2.54614187804496E-07"
-        iyz="1.94371719517839E-09"
+        iyz="1.9437171951784E-09"
         izz="1.49861390642806E-06" />
     </inertial>
     <visual>
@@ -410,7 +419,7 @@
       damping="1"
       friction="1" />
     <mimic
-      joint="joint_2_left"
+      joint="joint_1_right"
       multiplier="1"
       offset="0" />
   </joint>
@@ -418,16 +427,16 @@
     name="link_3_right">
     <inertial>
       <origin
-        xyz="0.00764323689249072 -7.07598477240564E-19 -0.0158438878575795"
+        xyz="0.00764323689249072 -6.70481136450209E-19 -0.0158438878575795"
         rpy="0 0 0" />
       <mass
         value="0.00676809927823876" />
       <inertia
         ixx="6.50800323977911E-07"
-        ixy="-4.15403897999288E-23"
+        ixy="-3.90699123108268E-23"
         ixz="1.32178480768053E-07"
         iyy="7.0118965410435E-07"
-        iyz="-1.79812532016807E-23"
+        iyz="-1.94350230005656E-23"
         izz="3.53298937602955E-07" />
     </inertial>
     <visual>
@@ -459,7 +468,7 @@
     type="fixed">
     <origin
       xyz="-0.029 0.061 0"
-      rpy="-1.5707963267949 0 0" />
+      rpy="-1.5708 0 0" />
     <parent
       link="link_2_right" />
     <child
@@ -471,16 +480,16 @@
     name="link_support_right">
     <inertial>
       <origin
-        xyz="-0.0230443185065054 2.00458307231488E-18 -0.00617590354942422"
+        xyz="-0.0230443185065054 2.00458308010044E-18 -0.00617590354942422"
         rpy="0 0 0" />
       <mass
         value="0.00343879121636352" />
       <inertia
         ixx="3.3013163060583E-07"
-        ixy="1.65818337633436E-23"
+        ixy="1.63567262663565E-23"
         ixz="-3.63783392132805E-07"
-        iyy="9.9582073006224E-07"
-        iyz="2.39537533359487E-23"
+        iyy="9.95820730062241E-07"
+        iyz="2.40140706788198E-23"
         izz="7.23002286395803E-07" />
     </inertial>
     <visual>
@@ -509,10 +518,10 @@
   </link>
   <joint
     name="joint_support_right"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0.004 0 0.04525"
-      rpy="0 0.5235987755983 -3.14159265358979" />
+      rpy="0 0.5236 -3.1416" />
     <parent
       link="mount_link" />
     <child
