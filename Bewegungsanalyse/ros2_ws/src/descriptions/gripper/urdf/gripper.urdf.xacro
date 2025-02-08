@@ -4,12 +4,12 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- ADAPT TO CORRECT PATH LATER -->
-  <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.transmission.xacro" /> -->
-  <!-- ADAPT TO CORRECT PATH LATER -->
+  <!-- Gazebo transmission interface -->
+  <xacro:include filename="$(find gripper)/urdf/gripper.transmission.xacro" />
 
   <xacro:macro name="gripper" params="prefix"> <!-- parent-->
 
+  <!-- is good like this, but for test cases outcommented -->
     <!-- <joint name="${prefix}_base_joint" type="fixed">
       <parent link="${parent}"/>
       <child link="${prefix}_mount_link"/>
