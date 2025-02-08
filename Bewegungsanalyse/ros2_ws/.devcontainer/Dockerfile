@@ -58,5 +58,12 @@ RUN sudo apt-get update && sudo apt-get install -y \
     ros-${ROS_DISTRO}-ros2-controllers \
     ros-${ROS_DISTRO}-gazebo-ros2-control
 
+# Install python3-pip
+RUN apt-get update && apt-get install -y \
+    python3-pip
+
+# Install colcon with pip
+RUN pip install -U colcon-clean
+
 # Update all packages
 RUN sudo apt update && sudo apt upgrade -y

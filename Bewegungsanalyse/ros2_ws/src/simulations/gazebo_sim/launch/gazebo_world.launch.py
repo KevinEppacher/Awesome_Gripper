@@ -5,6 +5,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 
+
 def generate_launch_description():
     # Declare launch arguments
     gazebo_gui_arg = DeclareLaunchArgument(
@@ -26,11 +27,11 @@ def generate_launch_description():
     # Include Gazebo launch
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(gazebo_launch_file),
-        launch_arguments={
-            "gui": LaunchConfiguration("gazebo_gui"),
-            "paused": LaunchConfiguration("paused"),
-            "world": LaunchConfiguration("world_name"),
-        }.items(),
+        launch_arguments=[
+            ("gui", LaunchConfiguration("gazebo_gui")),
+            ("paused", LaunchConfiguration("paused")),
+            ("world", LaunchConfiguration("world_name")),
+        ],
     )
 
     return LaunchDescription([
