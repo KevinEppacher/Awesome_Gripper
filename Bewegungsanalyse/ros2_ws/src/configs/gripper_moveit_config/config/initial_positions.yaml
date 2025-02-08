@@ -1,0 +1,4 @@
+# Default initial positions for gripper's ros2_control fake system
+
+initial_positions:
+  gripper_joint_1_right: 0
