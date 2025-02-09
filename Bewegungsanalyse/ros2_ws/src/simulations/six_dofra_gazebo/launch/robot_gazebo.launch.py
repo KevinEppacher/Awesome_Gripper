@@ -1,43 +1,70 @@
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.actions import TimerAction
+from launch_ros.actions import Node
+from launch.substitutions import Command, FindExecutable
 from ament_index_python.packages import get_package_share_directory
+from launch_ros.parameter_descriptions import ParameterValue
+import launch_ros.actions  # Hier wird `launch_ros` definiert
+from launch_ros.actions import Node
 
 def generate_launch_description():
-    # Pakete und Pfade abrufen
-    package_path = get_package_share_directory("gazebo_sim")
-    gazebo_world_launch = os.path.join(package_path,"launch","gazebo_world.launch.py")
+    # Xacro-Datei definieren
+    # six_dofra_config_pkg = get_package_share_directory("six_dofra_gazebo")
+    six_dofra_config_pkg = get_package_share_directory("six_dofra_config")
+    gazebo_pkg = get_package_share_directory("gazebo_sim")
 
-    # URDF-Datei
-    urdf_file = os.path.join(package_path, "urdf", "six_dofra_gazebo.xacro")
+    # path_to_urdf = os.path.join(six_dofra_config_pkg, "urdf", "six_dofra_gazebo.xacro")
+    path_to_urdf = os.path.join(six_dofra_config_pkg, "config", "urdf_6_dofra_v3.urdf.xacro")
 
-    # Launch-Argumente definieren
-    gazebo_gui_arg = DeclareLaunchArgument("gazebo_gui", default_value="true", description="Start Gazebo GUI")
-    paused_arg = DeclareLaunchArgument("paused", default_value="false", description="Start Gazebo paused")
-    world_name_arg = DeclareLaunchArgument("world_name", default_value="worlds/empty.world", description="Gazebo world file")
 
-    x_arg = DeclareLaunchArgument("x", default_value="0.0", description="X Position")
-    y_arg = DeclareLaunchArgument("y", default_value="0.0", description="Y Position")
-    z_arg = DeclareLaunchArgument("z", default_value="0.8", description="Z Position")
+    # # Gazebo starten
+    # gazebo = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(gazebo_pkg, "launch", "gazebo_world.launch.py")
+    #     )
+    # )
 
-    # 1️ **Starte die Gazebo-Welt**
-    gazebo_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(gazebo_world_launch),
-        launch_arguments={
-            "gui": LaunchConfiguration("gazebo_gui"),
-            "paused": LaunchConfiguration("paused"),
-            "world": LaunchConfiguration("world_name"),
-        }.items(),
+    # Joint State Publisher
+    joint_state_publisher = Node(
+        package="joint_state_publisher",
+        executable="joint_state_publisher",
+        name="joint_state_publisher",
+        output="screen"
+    )
+
+    # Robot State Publisher
+    robot_state_publisher = launch_ros.actions.Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        output="screen",
+        parameters=[{
+            "robot_description": ParameterValue(
+                Command(['xacro ', str(path_to_urdf)]),
+                value_type=str 
+            )
+        }]
+    )
+
+    # Spawn den Roboter, aber erst nach 5 Sekunden Verzögerung (damit Gazebo sicher läuft)
+    spawn_entity = TimerAction(
+        period=5.0,
+        actions=[Node(
+            package="gazebo_ros",
+            executable="spawn_entity.py",
+            arguments=[
+                "-entity", "six_dofra",
+                "-topic", "robot_description"
+            ],
+            output="screen"
+        )]
     )
 
     return LaunchDescription([
-        gazebo_gui_arg,
-        paused_arg,
-        world_name_arg,
-        x_arg,
-        y_arg,
-        z_arg,
-        gazebo_launch,
+        # gazebo,
+        joint_state_publisher,
+        robot_state_publisher,
+        # spawn_entity
     ])
