@@ -1,40 +1,53 @@
-import os
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-from launch.substitutions import Command, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.parameter_descriptions import ParameterValue
+
 
 def generate_launch_description():
-    package_name = "gripper"
+    # these are the arguments you can pass this launch file, for example paused:=true
+    gui_arg = DeclareLaunchArgument(
+        name='gui',
+        default_value='true',
+    )
+    package_arg = DeclareLaunchArgument('urdf_package',
+                                        description='The package where the robot description is located',
+                                        default_value='gripper')
+    model_arg = DeclareLaunchArgument('urdf_package_path',
+                                      description='The path to the robot description relative to the package root',
+                                      default_value='urdf/gripper.urdf.xacro')
 
-    # Correctly find the Xacro file
-    urdf_xacro_file = PathJoinSubstitution([
-        FindPackageShare(package_name),
-        "urdf",
-        "gripper.urdf.xacro"
-    ])
+    empty_world_launch = IncludeLaunchDescription(
+        PathJoinSubstitution([FindPackageShare('gazebo_ros'), 'launch', 'gazebo.launch.py']),
+        launch_arguments={
+            'gui': LaunchConfiguration('gui'),
+            'pause': 'true',
+        }.items(),
+    )
+
+    description_launch_py = IncludeLaunchDescription(
+        PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'description.launch.py']),
+        launch_arguments={
+            'urdf_package': LaunchConfiguration('urdf_package'),
+            'urdf_package_path': LaunchConfiguration('urdf_package_path')}.items()
+    )
+
+    # push robot_description to factory and spawn robot in gazebo
+    urdf_spawner_node = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        name='urdf_spawner',
+        arguments=['-topic', '/robot_description', '-entity', 'gripper', '-z', '0.5', '-unpause'],
+        output='screen',
+    )
 
     return LaunchDescription([
-        # Robot State Publisher
-        Node(
-            package="robot_state_publisher",
-            executable="robot_state_publisher",
-            name="robot_state_publisher",
-            output="screen",
-            parameters=[{
-                "robot_description": ParameterValue(Command([urdf_xacro_file]), value_type=str)
-            }]
-        ),
-
-        # Spawn the model in Gazebo
-        Node(
-            package="gazebo_ros",
-            executable="spawn_entity.py",
-            arguments=[
-                "-entity", "gripper",
-                "-topic", "robot_description"
-            ],
-            output="screen"
-        )
+        gui_arg,
+        package_arg,
+        model_arg,
+        empty_world_launch,
+        description_launch_py,
+        urdf_spawner_node,
     ])

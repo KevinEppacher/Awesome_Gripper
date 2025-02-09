@@ -4,22 +4,29 @@
   
   <xacro:macro name="gripper_transmission" params="prefix">
 
-    <ros2_control name="GazeboSystem" type="system">
-    <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-    </hardware>
-    <!-- List your joints here -->
-    <joint name="your_joint_name" />
-  </ros2_control>
-  
-  <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>$(find gripper)/config/gazebo_ros2_control.yaml</parameters>
-    </plugin>
-  </gazebo>
+    <!-- ROS 2 Control system -->
+    <ros2_control name="GripperSystem" type="system">
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
 
-    
-    <!-- Transmission for gripper -->
+      <!-- Define joints controlled by ROS 2 control -->
+      <joint name="${prefix}_joint_1_right">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+    </ros2_control>
+
+    <!-- Gazebo plugin for ROS 2 control -->
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <robotSimType>gazebo_ros2_control/GazeboSystem</robotSimType>
+        <parameters>package://gripper/config/gazebo_ros2_control.yaml</parameters>
+      </plugin>
+    </gazebo>
+
+    <!-- Transmission for Gazebo -->
     <transmission name="${prefix}_transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_joint_1_right">
@@ -30,7 +37,7 @@
         <mechanicalReduction>1.0</mechanicalReduction>
       </actuator>
     </transmission>
-    
+
     <!-- Mimic joints for Gazebo -->
     <gazebo>
       <plugin filename="libgazebo_mimic_joint_plugin.so" name="${prefix}_mimic_1">
@@ -39,7 +46,7 @@
         <multiplier>-1.0</multiplier>
         <offset>0.0</offset>
       </plugin>
-      
+
       <plugin filename="libgazebo_mimic_joint_plugin.so" name="${prefix}_mimic_2">
         <joint>${prefix}_joint_1_right</joint>
         <mimicJoint>${prefix}_joint_2_left</mimicJoint>
