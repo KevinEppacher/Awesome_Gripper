@@ -2,7 +2,7 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_6_dofra_v3">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="six_dofra_description">
     
     <link name="world"/>
     <joint name="world_joint" type="fixed">
@@ -19,7 +19,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/base_link.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/base_link.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.79216 0.81961 0.93333 1" />
@@ -28,7 +28,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/base_link.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/base_link.STL" />
             </geometry>
         </collision>
     </link>
@@ -41,7 +41,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/linear_sledge.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/linear_sledge.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.79216 0.81961 0.93333 1" />
@@ -50,7 +50,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/linear_sledge.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/linear_sledge.STL" />
             </geometry>
         </collision>
     </link>
@@ -71,7 +71,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_0.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_0.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.79216 0.81961 0.93333 1" />
@@ -80,7 +80,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_0.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_0.STL" />
             </geometry>
         </collision>
     </link>
@@ -99,7 +99,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_1.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_1.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.79216 0.81961 0.93333 1" />
@@ -108,7 +108,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_1.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_1.STL" />
             </geometry>
         </collision>
     </link>
@@ -129,7 +129,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_2.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_2.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.79216 0.81961 0.93333 1" />
@@ -138,7 +138,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_2.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_2.STL" />
             </geometry>
         </collision>
     </link>
@@ -159,7 +159,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_3.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_3.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
@@ -168,7 +168,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_3.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_3.STL" />
             </geometry>
         </collision>
     </link>
@@ -189,7 +189,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_4.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_4.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
@@ -198,7 +198,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_4.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_4.STL" />
             </geometry>
         </collision>
     </link>
@@ -219,7 +219,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_5.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_5.STL" />
             </geometry>
             <material name="">
                 <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
@@ -228,7 +228,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_5.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_5.STL" />
             </geometry>
         </collision>
     </link>
@@ -249,7 +249,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_6.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_6.STL" />
             </geometry>
             <material name="">
                 <color rgba="1 1 1 0.25" />
@@ -258,7 +258,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find urdf_6_dofra_v3)/meshes/link_6.STL" />
+                <mesh filename="file://$(find six_dofra_description)/meshes/link_6.STL" />
             </geometry>
         </collision>
     </link>
