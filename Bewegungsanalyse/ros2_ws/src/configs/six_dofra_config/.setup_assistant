@@ -1,13 +1,13 @@
 moveit_setup_assistant_config:
   urdf:
-    package: urdf_6_dofra_v3
-    relative_path: urdf/URDF_Assembly_6_DOFRA_v3.xacro
+    package: six_dofra_description
+    relative_path: urdf/six_dofra_description.urdf.xacro
   srdf:
-    relative_path: config/urdf_6_dofra_v3.srdf
+    relative_path: config/six_dofra_description.srdf
   package_settings:
     author_name: Kevin Eppacher
     author_email: kevin-eppacher@hotmail.de
-    generated_timestamp: 1738943369
+    generated_timestamp: 1739117107
   control_xacro:
     command:
       - position

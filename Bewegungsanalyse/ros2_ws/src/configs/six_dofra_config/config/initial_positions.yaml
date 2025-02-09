@@ -1,4 +1,4 @@
-# Default initial positions for urdf_6_dofra_v3's ros2_control fake system
+# Default initial positions for six_dofra_description's ros2_control fake system
 
 initial_positions:
   joint_1: 0
