@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: application_description
+    relative_path: urdf/application_description.urdf.xacro
+  srdf:
+    relative_path: config/six_dofra_with_gripper.srdf
+  package_settings:
+    author_name: Kevin Eppacher
+    author_email: kevin-eppacher@hotmail.de
+    generated_timestamp: 1739122216
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

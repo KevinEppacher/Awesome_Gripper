@@ -270,6 +270,15 @@
         <limit lower="-3.1416" upper="3.1416" effort="5" velocity="3.14" />
         <dynamics damping="0.01" friction="0.01" />
     </joint>
+
+    <link name="tool_nullframe_link"></link>
+    <joint name="tool_nullframe_joint" type="fixed">
+        <origin xyz="0 0 0.01" rpy="0 0 0" />
+        <parent link="link_6"/>
+        <child link="tool_nullframe_link"/>
+    </joint>
+
+
     <transmission name="trans_linear_axis">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="linear_axis">
