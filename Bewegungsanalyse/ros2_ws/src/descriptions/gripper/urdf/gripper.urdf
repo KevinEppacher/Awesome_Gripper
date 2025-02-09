@@ -2,10 +2,16 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="gripper">
+<robot name="gripper" >
 
-  <link
+  <!-- is good like this, but for test cases outcommented -->
+    <!-- <joint name="base_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="mount_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint> -->
+
+    <link
     name="mount_link">
     <inertial>
       <origin
@@ -45,6 +51,7 @@
       </geometry>
     </collision>
   </link>
+
   <link
     name="link_1_left">
     <inertial>
@@ -85,6 +92,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_1_left"
     type="revolute">
@@ -110,6 +118,7 @@
       multiplier="-1"
       offset="0" />
   </joint>
+
   <link
     name="link_2_left">
     <inertial>
@@ -150,6 +159,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_2_left"
     type="revolute">
@@ -175,6 +185,7 @@
       multiplier="1"
       offset="0" />
   </joint>
+
   <link
     name="link_3_left">
     <inertial>
@@ -215,6 +226,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_3_left"
     type="fixed">
@@ -232,6 +244,7 @@
       effort="0"
       velocity="0" />
   </joint>
+
   <link
     name="link_support_left">
     <inertial>
@@ -272,6 +285,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_support_left"
     type="revolute">
@@ -297,6 +311,7 @@
       multiplier="-1"
       offset="0" />
   </joint>
+
   <link
     name="link_1_right">
     <inertial>
@@ -337,6 +352,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_1_right"
     type="revolute">
@@ -358,6 +374,7 @@
       damping="1"
       friction="1" />
   </joint>
+
   <link
     name="link_2_right">
     <inertial>
@@ -398,6 +415,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_2_right"
     type="revolute">
@@ -423,6 +441,7 @@
       multiplier="1"
       offset="0" />
   </joint>
+
   <link
     name="link_3_right">
     <inertial>
@@ -463,6 +482,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_3_right"
     type="fixed">
@@ -476,6 +496,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
   <link
     name="link_support_right">
     <inertial>
@@ -516,6 +537,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint_support_right"
     type="revolute">
@@ -541,4 +563,69 @@
       multiplier="1"
       offset="0" />
   </joint>
+
+  <ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+  <!-- List your joints here -->
+  <joint name="your_joint_name" />
+</ros2_control>
+
+<gazebo>
+  <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+    <parameters>$(find your_package_name)/config/your_config.yaml</parameters>
+  </plugin>
+</gazebo>
+
+    <!-- Transmission for gazebo gripper -->
+  <transmission name="transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_1_right">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="actuator">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1.0</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+  <!-- Mimic joints for Gazebo -->
+  <gazebo>
+    <plugin filename="libgazebo_mimic_joint_plugin.so" name="mimic_1">
+      <joint>joint_1_right</joint>
+      <mimicJoint>joint_1_left</mimicJoint>
+      <multiplier>-1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    
+    <plugin filename="libgazebo_mimic_joint_plugin.so" name="mimic_2">
+      <joint>joint_1_right</joint>
+      <mimicJoint>joint_2_left</mimicJoint>
+      <multiplier>1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+
+    <plugin filename="libgazebo_mimic_joint_plugin.so" name="mimic_3">
+      <joint>joint_1_right</joint>
+      <mimicJoint>joint_2_right</mimicJoint>
+      <multiplier>1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+
+    <plugin filename="libgazebo_mimic_joint_plugin.so" name="mimic_4">
+      <joint>joint_1_right</joint>
+      <mimicJoint>joint_support_left</mimicJoint>
+      <multiplier>-1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+
+    <plugin filename="libgazebo_mimic_joint_plugin.so" name="mimic_5">
+      <joint>joint_1_right</joint>
+      <mimicJoint>joint_support_right</mimicJoint>
+      <multiplier>1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+  </gazebo>
+
 </robot>
