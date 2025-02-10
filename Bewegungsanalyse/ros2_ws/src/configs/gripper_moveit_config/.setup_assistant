@@ -5,9 +5,9 @@ moveit_setup_assistant_config:
   srdf:
     relative_path: config/gripper.srdf
   package_settings:
-    author_name: Robylat
-    author_email: git@roblyat.com
-    generated_timestamp: 1739032004
+    author_name: Roblyat
+    author_email: ro@blyat.com
+    generated_timestamp: 1739226725
   control_xacro:
     command:
       - position

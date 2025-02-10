@@ -7,10 +7,11 @@ from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitut
 from launch_ros.substitutions import FindPackageShare
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
+from launch_ros.actions import Node
 
 def generate_launch_description():
     # Paths
-    gripper_urdf_path = os.path.join(get_package_share_directory('gripper_moveit_config'), 'urdf', 'gripper.urdf.xacro')
+    gripper_urdf_path = os.path.join(get_package_share_directory('gripper_moveit_config'), 'config', 'gripper.urdf.xacro')
     moveit_config_path = get_package_share_directory('gripper_moveit_config')
 
     return LaunchDescription([

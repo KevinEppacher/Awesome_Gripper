@@ -7,14 +7,15 @@
   <!-- Gazebo transmission interface -->
   <xacro:include filename="$(find gripper)/urdf/gripper_transmission.xacro" />
 
-  <xacro:macro name="gripper" params="prefix"> <!-- parent-->
+  <xacro:macro name="gripper" params="prefix parent"> <!-- parent-->
+
+  <link name="world" />
 
   <!-- is good like this, but for test cases outcommented -->
-    <!-- <joint name="${prefix}_base_joint" type="fixed">
+    <joint name="${prefix}_base_joint" type="fixed">
       <parent link="${parent}"/>
       <child link="${prefix}_mount_link"/>
-      <xacro:insert_block name="origin"/>
-    </joint> -->
+    </joint>
 
     <link
     name="${prefix}_mount_link">
@@ -113,11 +114,11 @@
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="1"
-      velocity="1" />
+      effort="1.0"
+      velocity="1.0" />
     <dynamics
-      damping="1"
-      friction="1" />
+      damping="1.0"
+      friction="1.0" />
     <mimic
       joint="${prefix}_joint_1_right"
       multiplier="-1"
@@ -180,11 +181,11 @@
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="1"
-      velocity="1" />
+      effort="1.0"
+      velocity="1.0" />
     <dynamics
-      damping="1"
-      friction="1" />
+      damping="1.0"
+      friction="1.0" />
     <mimic
       joint="${prefix}_joint_1_left"
       multiplier="1"
@@ -246,8 +247,8 @@
       xyz="0 0 0" />
     <limit
       lower="-3.14"
-      effort="0"
-      velocity="0" />
+      effort="0.0"
+      velocity="0.0" />
   </joint>
 
   <link
@@ -306,11 +307,11 @@
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="1"
-      velocity="1" />
+      effort="1.0"
+      velocity="1.0" />
     <dynamics
-      damping="1"
-      friction="1" />
+      damping="1.0"
+      friction="1.0" />
     <mimic
       joint="${prefix}_joint_1_left"
       multiplier="-1"
@@ -373,11 +374,11 @@
     <limit
       lower="0"
       upper="1"
-      effort="1"
-      velocity="1" />
+      effort="1.0"
+      velocity="1.0" />
     <dynamics
-      damping="1"
-      friction="1" />
+      damping="1.0"
+      friction="1.0" />
   </joint>
 
   <link
@@ -436,11 +437,11 @@
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="1"
-      velocity="1" />
+      effort="1.0"
+      velocity="1.0" />
     <dynamics
-      damping="1"
-      friction="1" />
+      damping="1.0"
+      friction="1.0" />
     <mimic
       joint="${prefix}_joint_1_right"
       multiplier="1"
@@ -558,11 +559,11 @@
     <limit
       lower="-3.14"
       upper="3.14"
-      effort="1"
-      velocity="1" />
+      effort="1.0"
+      velocity="1.0" />
     <dynamics
-      damping="1"
-      friction="1" />
+      damping="1.0"
+      friction="1.0" />
     <mimic
       joint="${prefix}_joint_1_right"
       multiplier="1"
@@ -572,7 +573,7 @@
   </xacro:macro>
 
   <!-- Call the gripper macro, just for now, when connectiong to robot call in top level .xacro -->
-  <xacro:gripper prefix="gripper" /> <!-- parent-->
+  <xacro:gripper prefix="gripper" parent="world" /> <!-- parent-->
 
   <!-- Call the transmission macro -->
   <xacro:gripper_transmission prefix="gripper" />

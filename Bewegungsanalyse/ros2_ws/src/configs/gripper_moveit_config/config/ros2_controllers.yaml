@@ -1,21 +1,14 @@
-# This config file is used by ros2_control
-controller_manager:
-  ros__parameters:
-    update_rate: 100  # Hz
+controller_names:
+  - gripper_trajectory_controller
 
-    gripper_planning_group_controller:
-      type: joint_trajectory_controller/JointTrajectoryController
-
-
-    joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateBroadcaster
-
-gripper_planning_group_controller:
-  ros__parameters:
-    joints:
-      - gripper_joint_1_right
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
+gripper_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - gripper_joint_1_right
+  state_publish_rate: 25.0
+  action_monitor_rate: 10.0
+  gains:
+    gripper_joint_1_right:
+      p: 10.0
+      i: 0.0
+      d: 0.0
