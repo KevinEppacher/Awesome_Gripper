@@ -379,6 +379,7 @@
     <dynamics
       damping="1.0"
       friction="1.0" />
+    <hardwareInterface>Position</hardwareInterface>
   </joint>
 
   <link

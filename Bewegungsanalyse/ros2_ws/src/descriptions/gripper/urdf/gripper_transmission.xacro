@@ -7,7 +7,7 @@
     <!-- ROS 2 Control system -->
     <ros2_control name="GripperSystem" type="system">
       <hardware>
-        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        <plugin>gazebo_ros2_control/GazeboSimSystem</plugin>
       </hardware>
 
       <!-- Define joints controlled by ROS 2 control -->
@@ -20,13 +20,19 @@
 
     <!-- Gazebo plugin for ROS 2 control -->
     <gazebo>
-      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <!-- <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
         <robotSimType>gazebo_ros2_control/GazeboSystem</robotSimType>
-        <parameters>package://gripper/config/gazebo_ros2_control.yaml</parameters>
+        <parameters>$(find gripper)/config/gazebo_ros2_control.yaml</parameters>
+      </plugin> -->
+
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+          <parameters>/app/install/gripper/share/gripper/config/gazebo_ros2_control.yaml</parameters>
       </plugin>
+
     </gazebo>
 
-    <!-- Transmission for Gazebo -->
+
+    <!-- Transmission for Gazebo
     <transmission name="${prefix}_transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_joint_1_right">
@@ -36,7 +42,7 @@
         <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         <mechanicalReduction>1.0</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
 
     <!-- Mimic joints for Gazebo -->
     <gazebo>

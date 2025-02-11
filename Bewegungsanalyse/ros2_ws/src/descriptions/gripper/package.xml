@@ -14,6 +14,9 @@
   <!-- Build dependencies -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+
   <!-- Execution dependencies -->
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>

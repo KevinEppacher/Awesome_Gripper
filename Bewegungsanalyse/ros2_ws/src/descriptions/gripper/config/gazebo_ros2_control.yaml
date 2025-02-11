@@ -6,10 +6,10 @@ controller_manager:
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    gripper_trajectory_controller:
-      type: position_controllers/JointTrajectoryController
+    gripper_position_controller:  # Use position controllers
+      type: position_controllers/JointGroupPositionController
 
-gripper_trajectory_controller:
+gripper_position_controller:
   ros__parameters:
     joints:
       - gripper_joint_1_right
