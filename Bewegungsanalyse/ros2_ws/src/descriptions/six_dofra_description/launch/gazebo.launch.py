@@ -74,13 +74,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Joint State Publisher GUI (allows slider control in RViz)
-    joint_state_publisher_node = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        output='screen'
-    )
-
 
     load_joint_state_broadcaster = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller',

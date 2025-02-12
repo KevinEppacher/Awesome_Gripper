@@ -57,7 +57,8 @@ RUN sudo apt-get update && sudo apt-get install -y \
     ros-${ROS_DISTRO}-ros2-control \
     ros-${ROS_DISTRO}-ros2-controllers \
     ros-${ROS_DISTRO}-gazebo-ros2-control\
-    ros-${ROS_DISTRO}-joint-state-publisher-gui
+    ros-${ROS_DISTRO}-joint-state-publisher-gui\
+    ros-${ROS_DISTRO}-joint-state-publisher
 
 # Install python3-pip
 RUN apt-get update && apt-get install -y \
