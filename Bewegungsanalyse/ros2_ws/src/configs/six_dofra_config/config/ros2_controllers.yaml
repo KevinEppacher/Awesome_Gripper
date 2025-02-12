@@ -1,17 +1,24 @@
 # This config file is used by ros2_control
 controller_manager:
   ros__parameters:
-    update_rate: 100  # Hz
+    update_rate: 1000  # Hz  
+    # use_sim_time: true 
 
     six_dofra_planning_group_controller:
       type: joint_trajectory_controller/JointTrajectoryController
-
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
 six_dofra_planning_group_controller:
   ros__parameters:
+    interface_name: position
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
     joints:
       - linear_axis
       - joint_1
@@ -20,8 +27,15 @@ six_dofra_planning_group_controller:
       - joint_4
       - joint_5
       - joint_6
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
+
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+
+    allow_partial_joints_goal: true
+    hardware_state_has_offset: true
+    deduce_states_from_derivatives: true
+
+    constraints:
+      stopped_velocity_tolerance: 0.01 # Defaults to 0.01
+      goal_time: 0.0 # Defaults to 0.0 (start immediately)
+    
