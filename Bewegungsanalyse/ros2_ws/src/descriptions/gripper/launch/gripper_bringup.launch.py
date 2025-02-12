@@ -70,11 +70,24 @@ def generate_launch_description():
         output='screen'
     )
 
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller',
+             '--set-state', 'active', 'joint_state_broadcaster'],
+        output='screen')
+
+    load_joint_trajectory_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state',
+             'active', 'gripper_planning_group_controller'],
+        output='screen')
+
     # Spawn Robot in Gazebo
     urdf_spawn_node = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'urdf_spawner', '-topic', 'robot_description'],
+        arguments=[
+            '-entity', 'urdf_spawner',
+            '-topic', 'robot_description'
+        ],
         output='screen'
     )
 
@@ -83,6 +96,8 @@ def generate_launch_description():
         joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
+        controller_manager_node,
+        load_joint_state_broadcaster,
+        load_joint_trajectory_controller,
         urdf_spawn_node,
-        controller_manager_node,  # Only starts the controller manager
     ])
