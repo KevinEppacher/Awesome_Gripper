@@ -6,8 +6,9 @@
 
     <!-- ROS 2 Control system -->
     <ros2_control name="GripperSystem" type="system">
+    
       <hardware>
-        <plugin>gazebo_ros2_control/GazeboSimSystem</plugin>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
       </hardware>
 
       <!-- Define joints controlled by ROS 2 control -->
@@ -16,33 +17,16 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
       </joint>
+
     </ros2_control>
 
     <!-- Gazebo plugin for ROS 2 control -->
     <gazebo>
-      <!-- <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-        <robotSimType>gazebo_ros2_control/GazeboSystem</robotSimType>
-        <parameters>$(find gripper)/config/gazebo_ros2_control.yaml</parameters>
-      </plugin> -->
-
-      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-          <parameters>/app/install/gripper/share/gripper/config/gazebo_ros2_control.yaml</parameters>
-      </plugin>
-
+        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+            <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+            <parameters>$(find gripper_moveit_config)/config/ros2_controllers.yaml</parameters>
+        </plugin>
     </gazebo>
-
-
-    <!-- Transmission for Gazebo
-    <transmission name="${prefix}_transmission">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${prefix}_joint_1_right">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="${prefix}_actuator">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1.0</mechanicalReduction>
-      </actuator>
-    </transmission> -->
 
     <!-- Mimic joints for Gazebo -->
     <gazebo>
@@ -84,4 +68,4 @@
 
   </xacro:macro>
 
-</robot>
+</robot> 

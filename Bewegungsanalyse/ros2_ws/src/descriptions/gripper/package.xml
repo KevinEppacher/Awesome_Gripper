@@ -27,10 +27,10 @@
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>urdf_launch</exec_depend>
 
-<!-- Export package information -->
-<export>
-  <build_type>ament_cmake</build_type>
-  <gazebo_ros gazebo_model_path="${prefix}/.." />
-</export>
+  <!-- Export package information -->
+  <export>
+    <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="${prefix}/.." />
+  </export>
 
-</package>
+</package> 
