@@ -1,8 +1,0 @@
-[submodule "src/tutorials/urdf_sim_tutorial"]
-    path = src/tutorials/urdf_sim_tutorial
-    url = https://github.com/ros/urdf_sim_tutorial.git
-
-[submodule "src/tutorials/ros2_SimRealRobotControl"]
-    path = src/tutorials/ros2_SimRealRobotControl
-    url = https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.git
-

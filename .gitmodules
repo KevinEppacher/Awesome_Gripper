@@ -1,0 +1,21 @@
+[submodule "Bewegungsanalyse/ros2_ws/src/tutorials/my_bot"]
+	path = Bewegungsanalyse/ros2_ws/src/tutorials/my_bot
+	url = https://github.com/Chillhopper/ROS2_Elevator_Simulation.git
+[submodule "Bewegungsanalyse/ros2_ws/src/tutorials/urdf_sim_tutorial"]
+	path = Bewegungsanalyse/ros2_ws/src/tutorials/urdf_sim_tutorial
+	url = https://github.com/ros/urdf_sim_tutorial.git
+[submodule "Bewegungsanalyse/ros2_ws/src/tutorials/urdf_tutorial"]
+	path = Bewegungsanalyse/ros2_ws/src/tutorials/urdf_tutorial
+	url = https://github.com/ros/urdf_tutorial.git
+[submodule "Bewegungsanalyse/ros2_ws/src/tutorials/zinger_description"]
+	path = Bewegungsanalyse/ros2_ws/src/tutorials/zinger_description
+	url = https://github.com/pvandervelde/zinger_description.git
+[submodule "Bewegungsanalyse/catkin_ws/src/conveyor_demo"]
+	path = Bewegungsanalyse/catkin_ws/src/conveyor_demo
+	url = https://github.com/rokokoo/conveyor_demo.git
+[submodule "Bewegungsanalyse/catkin_ws/src/Examples/cobot"]
+	path = Bewegungsanalyse/catkin_ws/src/Examples/cobot
+	url = https://github.com/LearnRoboticsWROS/cobot.git
+[submodule "Bewegungsanalyse/catkin_ws/src/Examples/cobot_moveit_config_gazebo"]
+	path = Bewegungsanalyse/catkin_ws/src/Examples/cobot_moveit_config_gazebo
+	url = https://github.com/LearnRoboticsWROS/cobot_moveit_config_gazebo.git
